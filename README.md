@@ -10,7 +10,7 @@ A meta é dominar a base, entender os "porquês" de cada arquitetura e documenta
 ## 🗺️ O Mapa de Estudos
 
 ### 💻 Frontend (Onde a comunicação brilha)
-- [ ] **TypeScript Base:** Sintaxe, inferência, types vs interfaces, genérics.
+- [x] **TypeScript Base:** Sintaxe, inferência, types vs interfaces, genérics.
 - [ ] **Angular:** Aprofundamento no framework com foco na reatividade moderna (Signals).
 - [ ] **Design Tokens & Componentes:** Integração com bibliotecas (ex: shadcn) e ligação direta com o Design System.
 - [ ] **Validação:** Tratamento de dados no lado do cliente utilizando Zod.
