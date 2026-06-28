@@ -1,0 +1,15 @@
+{
+  "name": "02---typescript-demo",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Lucas <tiagocruyff14@gmail.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3"
+  }
+}

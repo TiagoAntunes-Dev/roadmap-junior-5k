@@ -1,0 +1,16 @@
+{
+  "name": "tech-tim---teacher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc && node test.js"
+  },
+  "keywords": [],
+  "author": "Lucas <tiagocruyff14@gmail.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

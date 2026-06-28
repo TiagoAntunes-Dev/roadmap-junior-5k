@@ -1,0 +1,7 @@
+# Ignora a pasta pesada de dependências
+node_modules/
+
+# Ignora os arquivos gerados pelo compilador (O "Bolo Pronto")
+*.js
+*.js.map
+*.d.ts

@@ -1,0 +1,54 @@
+{
+  // Visite https://aka.ms/tsconfig para ler mais sobre este arquivo
+  "compilerOptions": {
+    /* --- ORGANIZAÇÃO DE ARQUIVOS --- */
+    // Em projetos de back-end, manter a organização é vital. 
+    // rootDir: Indica onde você vai programar (seus arquivos .ts).
+    "rootDir": "./src",
+    // outDir: Indica para onde o TS vai enviar o código .js compilado (pronto para rodar no servidor).
+    "outDir": "./build/js",
+
+    /* --- CONFIGURAÇÕES DE AMBIENTE --- */
+    // module e target: Definem qual versão do JavaScript será gerada. 
+    // "esnext" significa usar as funcionalidades mais modernas e recentes do JS.
+    "module": "ESNext",
+    "target": "esnext",
+    "types": [],
+    // Nota para Node.js: Quando você estiver configurando o servidor da sua API, 
+    // precisará descomentar as linhas abaixo e rodar `npm install -D @types/node` 
+    // para o TS entender comandos nativos do Node (como fs, path, http).
+    // "lib": ["esnext"],
+    // "types": ["node"],
+
+    /* --- SAÍDAS EXTRAS --- */
+    // sourceMap: ESSENCIAL para debugar! Ele cria um arquivo .map que liga o código .js gerado 
+    // de volta ao seu código .ts original. Se der erro no servidor, ele aponta a linha certa no .ts.
+    "sourceMap": true,
+    // declaration: Cria arquivos .d.ts. Muito útil se você estiver criando uma biblioteca 
+    // que outros desenvolvedores vão usar, pois exporta apenas as tipagens.
+    "declaration": true,
+    "declarationMap": true,
+
+    /* --- CHECAGENS DE TIPO MAIS RÍGIDAS --- */
+    // Exige que você garanta que um item existe antes de acessá-lo em um array (evita erros de "undefined").
+    "noUncheckedIndexedAccess": true,
+    // Garante que propriedades opcionais de objetos respeitem exatamente os tipos definidos.
+    "exactOptionalPropertyTypes": true,
+
+    /* --- OPÇÕES RECOMENDADAS --- */
+    // strict: O coração do TypeScript. Habilita todas as checagens rigorosas. Sempre deixe como true!
+    "strict": true,
+    "jsx": "react-jsx", // Usado caso vá integrar com React no front-end.
+    "verbatimModuleSyntax": true,
+    // isolatedModules: Garante que cada arquivo possa ser compilado separadamente de forma segura.
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force", // Força o TS a tratar cada arquivo como um módulo independente.
+    // skipLibCheck: Pula a checagem de tipos das bibliotecas dentro de node_modules (acelera a compilação).
+    "skipLibCheck": true
+  },
+  "include": [
+    // Diz ao compilador para olhar apenas para a pasta "src" e ignorar arquivos soltos na raiz.
+    "src"
+  ]
+}
