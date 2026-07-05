@@ -1,0 +1,5 @@
+// A good pratice when is putting all types on a single file is to create a type.ts file and export all types from there. This way, we can import all types from a single file instead of importing them from multiple files. This is especially useful when we have a large number of types in our project.
+
+// If you have a large number of types in your project, it is a good practice to create a type.ts file and export all types from there. This way, we can import all types from a single file instead of importing them from multiple files. This is especially useful when we have a large number of types in our project.
+
+// Or Create a file in which directory they are gonna be used and export all types from there. This way, we can import all types from a single file instead of importing them from multiple files. This is especially useful when we have a large number of types in our project.
