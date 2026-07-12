@@ -1,0 +1,68 @@
+/* ============================================
+   CAPÍTULO 2 - SELETORES
+   ============================================ */
+
+/* 1) Seletor de ELEMENTO/TAG -> aplica em TODOS os elementos desse tipo */
+p {
+  font-family: Arial, sans-serif;
+}
+
+/* 2) Seletor de CLASSE (.) -> aplica em todos os elementos com essa classe */
+.aviso {
+  color: red;
+  font-weight: bold;
+}
+
+/* 3) Seletor de ID (#) -> aplica em UM único elemento (id não se repete na página) */
+#unico {
+  color: green;
+  text-decoration: underline;
+}
+
+/* 4) Seletor de AGRUPAMENTO -> aplica a mesma regra pra vários seletores de uma vez */
+h2, h3 {
+  color: darkslateblue;
+}
+
+/* 5) Seletor de ATRIBUTO -> pega elementos que têm um atributo com valor específico */
+input[type="text"] {
+  border: 2px solid blue;
+}
+input[type="email"] {
+  border: 2px solid orange;
+}
+
+/* 6) Combinador DESCENDENTE (espaço) -> pega QUALQUER descendente, não importa a profundidade */
+.caixa p {
+  color: teal;
+}
+
+/* 7) Combinador de FILHO DIRETO (>) -> só pega quem é filho imediato */
+.caixa-filho > p {
+  color: crimson;
+}
+
+/* 8) Combinador de IRMÃO ADJACENTE (+) -> só o elemento logo em seguida, do mesmo nível */
+h4 + p {
+  font-style: italic;
+}
+
+/* 9) PSEUDO-CLASSE -> estado especial do elemento */
+li:first-child {
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: lightblue; /* muda quando o mouse passa por cima */
+  cursor: pointer;
+}
+
+/* 10) PSEUDO-ELEMENTO -> cria/estiliza uma parte do elemento que não existe no HTML */
+.com-decoracao::before {
+  content: "★ ";   /* content é obrigatório em ::before e ::after */
+  color: gold;
+}
+.com-decoracao::after {
+  content: " ★";
+  color: gold;
+}

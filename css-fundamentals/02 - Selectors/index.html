@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 2 - Selectors</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Estudando os Seletores do CSS</h1>
+
+  <!-- Seletor de elemento: p { } -->
+  <p>Este é um parágrafo comum, pega no seletor de elemento "p".</p>
+
+  <!-- Seletor de classe: .aviso { } -->
+  <p class="aviso">Este parágrafo tem a classe "aviso".</p>
+
+  <!-- Seletor de ID: #unico { } -->
+  <p id="unico">Este parágrafo tem um ID único.</p>
+
+  <!-- Seletor de agrupamento: h2, h3 { } -->
+  <h2>Subtítulo H2</h2>
+  <h3>Subtítulo H3</h3>
+
+  <!-- Seletor de atributo: input[type="text"] { } -->
+  <input type="text" placeholder="Campo de texto">
+  <input type="email" placeholder="Campo de email">
+
+  <!-- Combinador descendente: div p { } -> todo <p> DENTRO de uma <div>, não importa o nível -->
+  <div class="caixa">
+    <p>Parágrafo dentro da div (descendente).</p>
+    <span>
+      <p>Este também é descendente, mesmo mais fundo.</p>
+    </span>
+  </div>
+
+  <!-- Combinador filho direto: div > p { } -> só filho DIRETO -->
+  <div class="caixa-filho">
+    <p>Sou filho direto da div.</p>
+    <span><p>Eu NÃO sou filho direto, sou neto.</p></span>
+  </div>
+
+  <!-- Combinador irmão adjacente: h4 + p { } -> só o PRIMEIRO <p> logo depois do <h4> -->
+  <h4>Título</h4>
+  <p>Primeiro parágrafo depois do h4 (é afetado).</p>
+  <p>Segundo parágrafo (NÃO é afetado pelo irmão adjacente).</p>
+
+  <!-- Pseudo-classes: :hover, :first-child -->
+  <ul>
+    <li>Primeiro item da lista (pega no :first-child)</li>
+    <li>Segundo item</li>
+    <li>Terceiro item</li>
+  </ul>
+  <button>Passe o mouse aqui (:hover)</button>
+
+  <!-- Pseudo-elementos: ::before e ::after -->
+  <p class="com-decoracao">Parágrafo com decoração antes e depois do texto.</p>
+
+</body>
+</html>

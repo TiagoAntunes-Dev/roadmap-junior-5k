@@ -1,0 +1,55 @@
+/* ============================================
+   CAPÍTULO 8 - ESTILIZANDO LISTAS E LINKS
+   ============================================ */
+
+/* ---- LISTAS ---- */
+
+.lista-normal {
+  list-style-type: square;   /* troca a bolinha padrão por um quadradinho */
+  list-style-position: inside; /* o marcador fica DENTRO da caixa do item, não sangrando pra fora */
+  /* outros valores de list-style-type: disc, circle, decimal, lower-alpha, none... */
+}
+
+/* ---- MENU DE NAVEGAÇÃO A PARTIR DE UMA LISTA ---- */
+
+.menu-nav {
+  list-style: none;  /* remove completamente as bolinhas/números */
+  display: flex;      /* coloca os <li> lado a lado, na horizontal */
+  gap: 20px;           /* espaço entre os itens do menu */
+  padding: 0;          /* remove o espaçamento padrão da lista */
+  margin: 0;
+}
+
+.menu-nav a {
+  text-decoration: none; /* remove o sublinhado padrão do link */
+  color: #333;
+  font-weight: bold;
+}
+.menu-nav a:hover {
+  color: #2575fc; /* muda a cor quando passa o mouse */
+}
+
+/* ---- ESTADOS DE UM LINK ----
+   A ORDEM dessas 4 pseudo-classes IMPORTA! Regra de memorização: "LoVe HAte"
+   (Link, Visited, Hover, Active) - sempre nessa ordem no CSS, senão pode não funcionar direito */
+
+.link-estilizado:link {
+  /* link ainda NÃO visitado */
+  color: #2575fc;
+}
+.link-estilizado:visited {
+  /* link que o usuário JÁ clicou/visitou antes */
+  color: #8e44ad;
+}
+.link-estilizado:hover {
+  /* enquanto o mouse está EM CIMA do link */
+  text-decoration: underline;
+}
+.link-estilizado:active {
+  /* no exato momento do clique */
+  color: red;
+}
+.link-estilizado:focus {
+  /* quando o link está selecionado via teclado (Tab) - importante pra acessibilidade! */
+  outline: 2px dashed orange;
+}

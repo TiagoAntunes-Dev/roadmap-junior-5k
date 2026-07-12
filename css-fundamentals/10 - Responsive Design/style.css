@@ -1,0 +1,64 @@
+/* ============================================
+   CAPÍTULO 10 - RESPONSIVE DESIGN (DESIGN RESPONSIVO)
+   ============================================
+
+   Abordagem MOBILE-FIRST: escrevemos o CSS pensando em telas PEQUENAS primeiro
+   (fora de qualquer media query), e depois usamos media queries pra ir
+   AJUSTANDO/AUMENTANDO o layout conforme a tela cresce. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* ---- ESTILO BASE (pensado pra celular, telas pequenas) ---- */
+.container {
+  display: flex;
+  flex-direction: column; /* cards empilhados, um embaixo do outro (bom pra tela estreita) */
+  gap: 15px;
+}
+
+.card {
+  background: #6c5ce7;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Imagem responsiva: NUNCA passa da largura do contêiner pai,
+   mas encolhe se precisar, mantendo a proporção original */
+.imagem-responsiva {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+}
+
+/* ---- MEDIA QUERY: TABLET ----
+   A partir de 600px de largura da tela, aplicamos essas regras extras */
+@media (min-width: 600px) {
+  .container {
+    flex-direction: row; /* os cards passam a ficar lado a lado */
+    flex-wrap: wrap;
+  }
+  .card {
+    flex: 1 1 45%; /* cada card ocupa ~45% da largura, dois por linha */
+  }
+}
+
+/* ---- MEDIA QUERY: DESKTOP ----
+   A partir de 900px, ajustamos mais ainda */
+@media (min-width: 900px) {
+  .card {
+    flex: 1 1 30%; /* agora 3 cards por linha */
+  }
+}
+
+/* Dica: min-width = "a partir dessa largura pra cima" (abordagem mobile-first)
+   Também existe max-width = "até essa largura", usado na abordagem desktop-first */

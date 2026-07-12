@@ -1,0 +1,22 @@
+html {
+    font-size: 22px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: aliceblue;
+}
+
+a:visited {
+    color: red;
+}
+
+a :hover {
+    color: green;
+}

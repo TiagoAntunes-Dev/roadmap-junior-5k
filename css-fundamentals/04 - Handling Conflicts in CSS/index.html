@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 4 - Handling Conflicts in CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Resolvendo Conflitos no CSS</h1>
+
+  <!-- Esse parágrafo tem classe E id. Quem vence, a classe ou o id? -->
+  <p id="paragrafo-vip" class="texto-azul">
+    Qual regra vence aqui: a do id ou a da classe?
+  </p>
+
+  <!-- Herança: o span vai herdar a cor do pai (div), mesmo sem regra própria -->
+  <div class="pai-heranca">
+    Texto do pai.
+    <span>Texto do span, que HERDA a cor do pai.</span>
+  </div>
+
+  <p class="regra-importante">Este parágrafo usa !important.</p>
+
+</body>
+</html>

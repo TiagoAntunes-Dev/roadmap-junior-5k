@@ -1,0 +1,73 @@
+/* ============================================
+   CAPÍTULO 5 - VALORES E UNIDADES
+   ============================================ */
+
+/* ---- UNIDADES ABSOLUTAS ----
+   Não mudam de acordo com o "pai" ou a tela. 1px é sempre 1px. */
+.caixa-px {
+  width: 300px;   /* pixel - a unidade mais comum pra tamanhos fixos */
+  padding: 10px;
+  background: lightgray;
+  margin-bottom: 10px;
+}
+/* outras unidades absolutas que existem: cm, mm, in, pt, pc (raramente usadas na web) */
+
+/* ---- UNIDADES RELATIVAS ----
+   O valor final depende de outra coisa (o elemento pai, a tela, a fonte...) */
+
+.caixa-porcentagem {
+  width: 50%;     /* 50% da largura do elemento PAI */
+  background: lightblue;
+  margin-bottom: 10px;
+}
+
+:root {
+  /* :root representa a tag <html>. É aqui que definimos o tamanho de fonte "base" */
+  font-size: 16px; /* 1rem = 16px, por padrão do navegador */
+}
+
+.caixa-rem {
+  padding: 2rem;  /* 2rem = 2 x tamanho de fonte do <html> = 32px, SEMPRE, não importa onde estiver */
+  background: lightgoldenrodyellow;
+  margin-bottom: 10px;
+}
+
+.caixa-em {
+  font-size: 20px;
+  background: lavender;
+  margin-bottom: 10px;
+}
+.caixa-em span {
+  font-size: 1.5em; /* 1.5 x o tamanho de fonte do PAI direto (20px) = 30px */
+}
+
+.caixa-viewport {
+  width: 50vw;   /* 50% da largura da JANELA do navegador (viewport width) */
+  height: 15vh;  /* 15% da altura da janela (viewport height) */
+  background: lightpink;
+  margin-bottom: 10px;
+}
+
+/* ---- CORES ---- */
+.cor-hex {
+  color: #3498db; /* hexadecimal: #RRGGBB */
+}
+.cor-rgb {
+  color: rgb(231, 76, 60); /* red, green, blue de 0 a 255 */
+}
+.cor-hsl {
+  color: hsl(145, 63%, 42%); /* matiz (0-360), saturação %, luminosidade % */
+}
+/* também existem nomes prontos, tipo "red", "blue", "tomato", etc. */
+
+/* ---- CUSTOM PROPERTIES (variáveis CSS) ----
+   Servem pra reutilizar valores e facilitar manutenção do código */
+:root {
+  --cor-principal: #6c5ce7;
+  --espacamento-padrao: 16px;
+}
+.usa-variavel {
+  background-color: var(--cor-principal); /* usa a variável definida acima */
+  padding: var(--espacamento-padrao);
+  color: white;
+}

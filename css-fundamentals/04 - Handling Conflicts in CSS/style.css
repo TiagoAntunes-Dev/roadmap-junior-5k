@@ -1,0 +1,44 @@
+/* ============================================
+   CAPÍTULO 4 - CONFLITOS NO CSS (CASCATA E ESPECIFICIDADE)
+   ============================================
+
+   Quando duas regras tentam estilizar o MESMO elemento, o navegador decide
+   qual vence usando 3 critérios, NESSA ORDEM:
+
+   1. IMPORTÂNCIA  -> !important sempre vence (evite usar, é difícil de manter)
+   2. ESPECIFICIDADE -> quanto mais "específico" o seletor, mais ele pesa
+   3. ORDEM NO CÓDIGO -> se empatar tudo, quem vem DEPOIS no arquivo vence
+
+   ESPECIFICIDADE (pontuação, do maior pro menor):
+   - style inline no HTML  -> vale 1000 pontos
+   - ID (#meuId)            -> vale 100 pontos
+   - Classe, atributo, pseudo-classe (.minhaClasse, [type], :hover) -> vale 10 pontos
+   - Elemento, pseudo-elemento (div, p, ::before) -> vale 1 ponto
+*/
+
+/* Especificidade: 1 classe = 10 pontos */
+.texto-azul {
+  color: blue;
+}
+
+/* Especificidade: 1 id = 100 pontos -> ESSA GANHA da classe acima, mesmo vindo antes */
+#paragrafo-vip {
+  color: red;
+}
+
+/* HERANÇA: propriedades de texto (color, font-family, font-size...) passam
+   automaticamente dos elementos pai para os filhos, MESMO sem regra explícita. */
+.pai-heranca {
+  color: darkgreen;
+  font-family: Georgia, serif;
+}
+/* repare que não precisamos escrever nenhuma regra pro <span>, ele já herda tudo */
+
+/* !important força a regra a vencer TUDO, ignorando até especificidade maior.
+   Use com muito cuidado, pois quebra a cascata normal do CSS. */
+.regra-importante {
+  color: purple !important;
+}
+.regra-importante {
+  color: black; /* essa regra perde, mesmo vindo depois, por causa do !important acima */
+}

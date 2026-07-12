@@ -1,0 +1,10 @@
+20260709	14:47:43	a0e2a8a3-9e6e-461c-86e0-bc461ee96c0c	Evento de teste disparado!
+
+20260709: É a data gerada pelo pacote date-fns sob a máscara yyyyMMdd (Ano 2026, Mês 07, Dia 09).
+
+14:47:43: É a hora exata em que o evento ocorreu, sob a máscara HH:mm:ss.
+
+a0e2a8a3-9e6e-461c-86e0-bc461ee96c0c: Este é o UUID (Universally Unique Identifier) gerado pelo pacote uuid. É uma sequência matemática aleatória cuja chance de colisão (gerar o mesmo número duas vezes) é quase nula. Ele serve como a "impressão digital" única desse evento.
+
+Evento de teste disparado!: É o conteúdo da mensagem que você ordenou que o seu emissor (index.js) gritasse no sistema através do comando myEmitter.emit().
+20260709	14:50:08	f77c1ca5-814f-4b82-834a-435e7d9422df	Evento de teste disparado!

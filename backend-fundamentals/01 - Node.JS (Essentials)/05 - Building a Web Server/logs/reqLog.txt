@@ -1,0 +1,8 @@
+20260709	16:29:05	f8f130a3-cb41-4caf-ae8a-9d473279b4cd	/new-page	GET
+20260709	16:29:05	d207b7dc-26fd-4701-836a-8354300a04bc	/css/styles.css	GET
+20260709	16:29:05	93f1acfa-1acf-4eeb-82f7-d976806e7ccc	/img/computer-program-code-on-a-black-background-close-up-high-quality-free-photo.jpg	GET
+20260709	16:29:05	e9a1a4f0-97b3-465e-aa9c-9453284dfcd8	/favicon.ico	GET
+20260709	16:29:07	ad8e47a7-7ca7-43c1-a047-a97bab9fba26	/new-page	GET
+20260709	16:29:07	e92a80af-7562-4196-adc0-eff6ae41aee5	/css/styles.css	GET
+20260709	16:29:07	32dd6e1d-09d8-4c93-b3f0-159a1a793c73	/img/computer-program-code-on-a-black-background-close-up-high-quality-free-photo.jpg	GET
+20260709	16:29:07	a883db30-b7bf-4266-833f-6d0b737c9df6	/favicon.ico	GET

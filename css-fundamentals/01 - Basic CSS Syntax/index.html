@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1 - Basic CSS Syntax</title>
+
+  <!-- Existem 3 formas de aplicar CSS num documento: -->
+  <!-- 1) CSS Externo (a mais usada e recomendada) - feito abaixo -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 2) CSS Interno (dentro do próprio HTML, na tag <style>) -->
+  <style>
+    /* Isso aqui é um exemplo de CSS interno.
+       Só serve pra essa página, não afeta outros arquivos. */
+    .exemplo-interno {
+      color: darkorange;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 3) CSS Inline (direto na tag, usando o atributo style) -->
+  <!-- Evite usar muito, é difícil de manter e tem prioridade alta demais -->
+  <h1 style="color: purple;">Título com CSS Inline</h1>
+
+  <h2 class="exemplo-interno">Título com CSS Interno</h2>
+
+  <p id="paragrafo-principal">Este parágrafo é estilizado pelo arquivo style.css (CSS Externo).</p>
+
+  <p class="destaque">Outro parágrafo, também estilizado pelo CSS externo.</p>
+
+</body>
+</html>

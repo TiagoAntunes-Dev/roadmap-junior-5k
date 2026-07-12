@@ -1,0 +1,34 @@
+/* ============================================
+   CAPÍTULO 1 - SINTAXE BÁSICA DO CSS
+   ============================================
+
+   A estrutura básica de uma regra CSS é:
+
+   seletor {
+     propriedade: valor;
+     propriedade: valor;
+   }
+
+   - "seletor"    -> escolhe QUAL elemento HTML vai ser estilizado
+   - "propriedade" -> escolhe O QUE vai mudar (cor, tamanho, espaçamento...)
+   - "valor"      -> define COMO vai mudar
+   - cada declaração (propriedade: valor;) SEMPRE termina com ponto e vírgula
+*/
+
+/* Selecionando pelo ID (usa #) - só existe UM elemento com esse id na página */
+#paragrafo-principal {
+  color: navy;              /* cor do texto */
+  font-size: 18px;          /* tamanho da fonte */
+  font-weight: bold;        /* deixa o texto em negrito */
+}
+
+/* Selecionando pela CLASSE (usa .) - pode ter vários elementos com a mesma classe */
+.destaque {
+  background-color: yellow; /* cor de fundo */
+  padding: 8px;             /* espaço interno entre o texto e a borda da caixa */
+}
+
+/* Comentários em CSS sempre ficam entre /* e */ - nunca use // aqui */
+
+/* Dica: o navegador ignora espaços em branco e quebras de linha,
+   então você pode formatar seu CSS do jeito que for mais legível pra você. */

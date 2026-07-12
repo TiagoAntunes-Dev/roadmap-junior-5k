@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Tiago Antunes">
+    <meta name="description" content="This page is a simple example of a web page">
+    <title>My First Web Page</title>
+    <link rel="icon" href="icons/vsc-01.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <h1>My Goals for the Year!</h1>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="#html">Learning HTML</a></li>
+                <li><a href="#vacation">Planning a Vacation</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <article id="html">
+            <h2>I'm ready to learn HTML</h2>
+            <p>This is my first Web Page.</p>
+            <section>
+                <h3>My Favorite Code Editor</h3>
+                <img src="icons/vsc-01.jpg" alt="Icon of Visual Studio Code" title="I am learning HTML5" width="200" height="200">
+                <figure>
+                    <figcaption>Visual Studio Code is my favorite code editor.</figcaption>
+                    <pre><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code></pre>
+                </figure>
+            </section>
+            <section>
+                <h3>My Daily Schedule</h3>
+                <p>Let me tell you how:</p>
+                <ol>
+                    <li>I learn more about web dev.</li>
+                    <li>I plan out my schedule.</li>
+                    <li>I use resources from <abbr title="Mozilla Developer Network"><a href="https://developer.mozilla.org/">MDN</a></abbr></li>
+                </ol>
+                <aside>
+                    <details>
+                        <summary>Guess the <mark>number of hours</mark> I code per day</summary>
+                        <p>
+                            I start coding at <time datetime="08:00">8:00 AM</time> and code for <time datetime="PT3H">3 hours</time>.
+                        </p>
+                    </details>
+                </aside>
+                <br>
+                <table>
+                    <caption>My Daily Schedule</caption>
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Activity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Morning</th>
+                            <td>
+                                <time datetime="08:00">8am</time>
+                                <time datetime="11:00">11am</time>
+                            </td>
+                            <td>Write Code</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Break</th>
+                            <td>
+                                <time datetime="11:00">11am</time> -
+                                <time datetime="12:00">12pm</time>
+                            </td>
+                            <td>Lunch Break</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Afternoon</th>
+                            <td>
+                                <time datetime="12:00">12pm</time> -
+                                <time datetime="17:00">5pm</time>
+                            </td>
+                            <td>Study Time</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Evening</th>
+                            <td rowspan="2">All Other Times</td>
+                            <td>Free Time</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Night</th>
+                            <td>Sleep</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">And that's what I do every day: eat, code, sleep and ...recharge! BOOM</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </article>
+        <hr>
+        <article id="vacation">
+            <h2>I'm also planning a vacation</h2>
+            <p>I've been working hard and <em>really</em> need a getaway.</p>
+            <p>I live in Kansas so I want to visit a beach.</p>
+            <section>
+                <h3>Places I like to visit:</h3>
+                <ul>
+                    <li>
+                        <p>I've heard good things about the Caribbean.</p>
+                        <figure>
+                            <img src="icons/Carribean Island,IMG.jpg" alt="Caribbean Island" title="I want to visit the Caribbean" width="300" height="200" loading="lazy">
+                            <figcaption>Caribbean Island Dream Vacation</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <p>I've heard good things about here:</p>
+                        <address>
+                            1-17 Westminster Dr<br>
+                            Freeport, Grand Bahama BHS
+                        </address>
+                        <img src="icons/istockphoto-1160947136-612x612.jpg" alt="Cancun Vacation" title="It's 5 o'clock yet?">
+                    </li>
+                </ul>
+            </section>
+            <!--Todo List: Add more Places-->
+            <section>
+                <h3>Places I want to avoid.</h3>
+                <dl>
+                    <dt>North Pole</dt>
+                    <dd>I hear this is <strong>cold!</strong></dd>
+                    <dt>Mount Everest</dt>
+                    <dd>Too high, too cold, too dangerous.</dd>
+                    <dt>South Pole</dt>
+                    <dd>Also super cold.</dd>
+                </dl>
+            </section>
+        </article>
+    </main>
+    <hr>
+    <footer>
+        <p>
+            &copy; <a href="about.html">Tiago Antunes</a>
+        </p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+</body>
+</html>

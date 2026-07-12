@@ -1,0 +1,49 @@
+/* ============================================
+   CAPÍTULO 3 - O MODELO DE CAIXA (BOX MODEL)
+   ============================================
+
+   Da parte de dentro pra fora, toda caixa tem:
+
+   1. content  -> o conteúdo em si (texto, imagem etc.)
+   2. padding  -> espaço interno, ENTRE o conteúdo e a borda
+   3. border   -> a borda da caixa
+   4. margin   -> espaço externo, FORA da borda (separa de outros elementos)
+*/
+
+.caixa-content-box {
+  width: 300px;            /* largura do CONTEÚDO (não conta padding/border) */
+  padding: 20px;           /* espaço interno */
+  border: 5px solid black; /* borda */
+  margin: 30px;            /* espaço externo */
+  background-color: lightyellow;
+
+  /* box-sizing: content-box é o PADRÃO do navegador.
+     Isso significa que a largura final da caixa na tela é:
+     width + padding (esq+dir) + border (esq+dir)
+     = 300 + 40 + 10 = 350px de largura real! */
+  box-sizing: content-box;
+}
+
+.caixa-border-box {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 30px;
+  background-color: lightgreen;
+
+  /* box-sizing: border-box faz o padding e a border ficarem DENTRO dos 300px.
+     Ou seja, a caixa tem exatamente 300px de largura na tela, sem surpresas.
+     Por isso muitos devs usam border-box em TODOS os elementos do projeto. */
+  box-sizing: border-box;
+}
+
+.margem-topo {
+  margin-top: 40px;
+  background-color: lightcoral;
+  padding: 10px;
+
+  /* MARGIN COLLAPSE (colapso de margem):
+     quando duas margens verticais (top/bottom) de elementos vizinhos se encontram,
+     o navegador NÃO soma as duas margens, ele usa apenas a MAIOR entre elas.
+     Isso só acontece com margens verticais, nunca com margens horizontais. */
+}

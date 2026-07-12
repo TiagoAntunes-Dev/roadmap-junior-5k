@@ -1,0 +1,46 @@
+/* ============================================
+   CAPÍTULO 6 - SIZING (DIMENSIONAMENTO)
+   ============================================ */
+
+/* Sempre uma boa prática usar border-box no projeto todo,
+   pra padding e border não estourarem a largura definida */
+* {
+  box-sizing: border-box;
+}
+
+.largura-fixa {
+  width: 300px;   /* tamanho travado, não muda nunca */
+  background: lightgray;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.largura-min-max {
+  width: 50%;
+  min-width: 200px;  /* nunca fica menor que 200px, mesmo se a tela encolher */
+  max-width: 500px;  /* nunca fica maior que 500px, mesmo se a tela crescer */
+  background: lightblue;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.altura-min {
+  min-height: 150px; /* a caixa cresce se o conteúdo precisar, mas nunca fica menor que 150px */
+  background: lightgreen;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.auto-conteudo {
+  width: fit-content; /* a caixa fica do tamanho exato do conteúdo, nem mais nem menos */
+  background: lightyellow;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Outros valores úteis de tamanho:
+   - width: auto;          -> o navegador calcula sozinho (é o padrão)
+   - width: max-content;   -> a caixa fica larga o suficiente pra não quebrar linha nenhuma
+   - width: min-content;   -> a caixa fica com a menor largura possível, quebrando tudo que puder
+   - height: 100vh;        -> ocupa 100% da altura da tela (útil pra seções full-screen)
+*/

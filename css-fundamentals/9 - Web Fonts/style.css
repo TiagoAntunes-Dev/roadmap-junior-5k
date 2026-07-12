@@ -1,0 +1,47 @@
+/* ============================================
+   CAPÍTULO 9 - WEB FONTS (FONTES NA WEB)
+   ============================================ */
+
+/* ---- FONT STACK (pilha de fontes) ----
+   O navegador tenta usar a 1ª fonte da lista. Se não achar, tenta a próxima.
+   A ÚLTIMA opção deve ser sempre uma família GENÉRICA (serif, sans-serif, monospace)
+   como plano B garantido. */
+
+.titulo-fonte-web {
+  /* "Poppins" foi importada via Google Fonts lá no <head> do HTML */
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 700; /* usamos o peso 700 (negrito), que importamos no link do Google Fonts */
+}
+
+.texto-serif {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.texto-sans {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.texto-mono {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.texto-espacado {
+  font-size: 18px;
+  line-height: 1.8;       /* espaço ENTRE as linhas (1.8x o tamanho da fonte) - melhora a leitura */
+  letter-spacing: 1px;    /* espaço entre as LETRAS */
+  text-transform: uppercase; /* deixa tudo maiúsculo, sem precisar mudar o HTML */
+}
+
+/* ---- @font-face ----
+   Forma de usar uma fonte customizada, baixando o arquivo da fonte você mesmo,
+   ao invés de importar do Google Fonts. Exemplo (comentado, pois não temos o arquivo):
+
+   @font-face {
+     font-family: "MinhaFontePersonalizada";
+     src: url("fontes/minha-fonte.woff2") format("woff2");
+     font-weight: normal;
+   }
+
+   Depois de declarada, você usaria normalmente:
+   font-family: "MinhaFontePersonalizada", sans-serif;
+*/

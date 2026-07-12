@@ -1,0 +1,55 @@
+/* ============================================
+   CAPÍTULO 7 - BACKGROUNDS E BORDERS
+   ============================================ */
+
+.fundo-cor {
+  background-color: #2ecc71; /* cor de fundo sólida */
+  color: white;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.fundo-gradiente {
+  /* gradiente linear: cria uma transição suave entre cores.
+     "to right" é a direção (pode ser to left, to bottom, 45deg, etc.) */
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.borda-simples {
+  border: 3px solid #333; /* atalho: largura + estilo + cor, tudo numa linha */
+  padding: 20px;
+  margin-bottom: 10px;
+  /* também dá pra controlar cada lado separado:
+     border-top, border-right, border-bottom, border-left */
+}
+
+.borda-arredondada {
+  border: 2px solid #333;
+  border-radius: 15px; /* arredonda os 4 cantos igualmente */
+  /* border-radius: 50%; deixaria a caixa um círculo/oval perfeito, se for quadrada */
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.caixa-sombra {
+  border: 1px solid #ddd;
+  /* box-shadow: deslocamento-x deslocamento-y desfoque cor */
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.fundo-imagem {
+  height: 150px;
+  /* Aqui usamos um gradiente no lugar de uma imagem real, só de exemplo,
+     mas a sintaxe pra imagem de verdade seria:
+     background-image: url("caminho/da/imagem.jpg"); */
+  background-image: radial-gradient(circle, #f7971e, #ffd200);
+  background-repeat: no-repeat; /* não repetir a imagem lado a lado */
+  background-position: center;  /* centralizar a imagem na caixa */
+  background-size: cover;       /* cobrir toda a caixa, cortando se precisar */
+  margin-bottom: 10px;
+}
