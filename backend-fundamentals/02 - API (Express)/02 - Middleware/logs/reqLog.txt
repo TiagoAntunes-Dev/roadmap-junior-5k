@@ -1,0 +1,25 @@
+
+20260717	17:41:46	3e72a405-3b12-49a3-b6c6-ddc9831f343d	GET	undefined	/
+
+20260717	17:41:46	329689c4-49cd-485a-80fb-dfef12cf0e09	GET	undefined	/css/styles.css
+
+20260717	17:53:43	675c31d5-c0e7-4f22-b2ad-13892790f556	GET	undefined	/css/styles.css
+
+20260717	17:53:43	86a8b8b1-0a62-4f83-bdc4-2106d775c111	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
+
+20260717	17:54:28	b2247db4-fab0-4799-8d39-de9b2ce563cd	GET	undefined	/
+
+20260717  17:53:43  675c31d5-...  GET  undefined  /css/styles.css
+  data      hora      uuid único   método  origem    URL solicitada20260717	18:28:13	0a3292fd-7243-44fb-b744-056521d95a77	GET	undefined	/
+20260717	18:28:13	719e9277-8dd2-4b3a-890c-0d7223f38d92	GET	undefined	/css/styles.css
+20260717	18:28:13	06a9092d-aba0-412c-967c-7cbc350044bf	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
+20260717	18:29:19	01097c4f-6e16-4593-9111-27fdc85642a7	GET	undefined	/erro-teste
+20260717	18:30:25	b3c683bb-8d12-479d-afaa-32a4a6739578	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
+20260717	18:30:32	855e7825-c08f-43ab-8e09-54e9d2024482	GET	undefined	/erro-teste
+20260717	18:30:33	7e42c5cf-9348-4603-a4f5-fa60912bfdfd	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
+20260717	18:37:19	a07071c0-fede-497d-a672-2f6cc0ad126e	GET	undefined	/404
+20260717	18:37:19	ce52cb0e-5fdb-4b25-8ac2-1765cf382ecc	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
+20260717	18:37:19	e4080ead-46ed-4083-9528-d794c6cb85ad	GET	undefined	/css/styles.css
+20260717	18:37:30	409f5726-a573-405b-843f-31a0a85ca2a7	GET	undefined	/404
+20260717	18:37:31	83ce24bd-24ed-4f92-b078-a41631d68d0c	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
+20260717	18:37:31	e6f2f2de-159a-4032-92ad-246267fdf8d4	GET	undefined	/css/styles.css

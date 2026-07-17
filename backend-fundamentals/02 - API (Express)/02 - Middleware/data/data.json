@@ -1,0 +1,18 @@
+[
+    {
+        "firstname": "Tiago",
+        "lastname": "Antunes",
+        "number": 7
+    },
+    {
+        "firstname": "Johan",
+        "lastname": "Cruyff",
+        "number": 14
+    },
+
+    {
+        "firstname": "Bruno",
+        "lastname": "Fernandes",
+        "number": 8
+    }
+]
