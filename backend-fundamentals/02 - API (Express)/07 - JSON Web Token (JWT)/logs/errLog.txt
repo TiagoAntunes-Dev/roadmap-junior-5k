@@ -1,0 +1,5 @@
+20260717	18:29:19	98ff1da8-8397-4e2e-8948-6663527ef7b2	Error: Erro de teste!
+20260717	18:30:32	37c45e28-9579-4075-9470-8ea48528acfc	Error: Erro de teste!
+20260721	19:36:25	6aaf28ca-f479-459c-a713-49c14d4a4ca2	TypeError: usersDB.users.find is not a function
+20260722	15:57:29	6e5755db-784e-4201-808d-000e60a57b92	Error: secretOrPrivateKey must have a value
+20260722	16:00:08	8dae86fe-abd9-4e73-8331-f0863bc38f0b	Error: secretOrPrivateKey must have a value
