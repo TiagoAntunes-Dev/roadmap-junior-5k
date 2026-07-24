@@ -11,15 +11,15 @@ A meta é dominar a base, entender os "porquês" de cada arquitetura e documenta
 
 ### 💻 Frontend (Onde a comunicação brilha)
 - [x] **TypeScript Base:** Sintaxe, inferência, types vs interfaces, genérics.
-- [ ] **Angular:** Aprofundamento no framework com foco na reatividade moderna (Signals).
+- [x] **Angular:** Aprofundamento no framework com foco na reatividade moderna (Signals).
 - [ ] **Design Tokens & Componentes:** Integração com bibliotecas (ex: shadcn) e ligação direta com o Design System.
 - [ ] **Validação:** Tratamento de dados no lado do cliente utilizando Zod.
-- [ ] **Acessibilidade & UX:** Fundamentos de interfaces amigáveis e estruturação semântica.
+- [x] **Acessibilidade & UX:** Fundamentos de interfaces amigáveis e estruturação semântica.
 - [ ] **Qualidade:** Testes de front-end (Unitário e End-to-End).
 
 ### ⚙️ Backend (O motor e a regra de negócio)
-- [ ] **A Base:** Terminal, linha de comando e Git/GitHub avançado (Branches, Pull Requests, Merges limpos).
-- [ ] **Core:** Node.js fortemente tipado com TypeScript.
+- [x] **A Base:** Terminal, linha de comando e Git/GitHub avançado (Branches, Pull Requests, Merges limpos).
+- [x] **Core:** Node.js fortemente tipado com TypeScript.
 - [ ] **Arquitetura de Rede:** O protocolo HTTP "de verdade" (Métodos, Status Codes, Headers).
 - [ ] **Design de API:** Construção de REST maduro, documentação (OpenAPI/Swagger) e noções de GraphQL.
 - [ ] **Autenticação & Segurança:** JWT, Hash de senhas, proteção contra SQL Injection/XSS e gestão de segredos.
@@ -29,8 +29,8 @@ A meta é dominar a base, entender os "porquês" de cada arquitetura e documenta
 
 ### 🗄️ Banco de Dados (O chão de fábrica)
 - [ ] **Fundamentos Relacionais:** Normalização de dados, Transações e propriedades ACID.
-- [ ] **Arquitetura:** Modelagem de dados eficiente.
-- [ ] **ORM & Migrations:** Aprofundamento no ecossistema Prisma (Migrations, Seeds, schemas).
+- [x] **Arquitetura:** Modelagem de dados eficiente.
+- [x] **ORM & Migrations:** Aprofundamento no ecossistema Prisma (Migrations, Seeds, schemas).
 - [ ] **Otimização:** Criação de índices e análise de performance de query.
 - [ ] **Infra de Dados:** Entender na prática a diferença entre banco em arquivo (SQLite) vs. Servidor Gerenciado (e evitar quebras no deploy).
 
@@ -39,7 +39,7 @@ A meta é dominar a base, entender os "porquês" de cada arquitetura e documenta
 - [ ] **Segurança de Infra:** Gerenciamento de variáveis de ambiente e connection strings (Nunca commitar credenciais!).
 - [ ] **Containers:** Fundamentos de Docker (Isolamento de ambiente).
 - [ ] **Automação (CI/CD):** Criação de pipelines com GitHub Actions.
-- [ ] **Cloud Provider:** Noções básicas de nuvem (AWS/GCP), entendendo o que acontece por trás de plataformas como Render e Vercel.
+- [x] **Cloud Provider:** Noções básicas de nuvem (AWS/GCP), entendendo o que acontece por trás de plataformas como Render e Vercel.
 
 ### 🎨 Figma & Design (A ponte com o Frontend)
 - [ ] **Design System:** O que é, estruturação e qual problema ele resolve.
