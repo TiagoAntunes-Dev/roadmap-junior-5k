@@ -20,12 +20,12 @@ A meta é dominar a base, entender os "porquês" de cada arquitetura e documenta
 ### ⚙️ Backend (O motor e a regra de negócio)
 - [x] **A Base:** Terminal, linha de comando e Git/GitHub avançado (Branches, Pull Requests, Merges limpos).
 - [x] **Core:** Node.js fortemente tipado com TypeScript.
-- [ ] **Arquitetura de Rede:** O protocolo HTTP "de verdade" (Métodos, Status Codes, Headers).
+- [x] **Arquitetura de Rede:** O protocolo HTTP "de verdade" (Métodos, Status Codes, Headers).
 - [ ] **Design de API:** Construção de REST maduro, documentação (OpenAPI/Swagger) e noções de GraphQL.
-- [ ] **Autenticação & Segurança:** JWT, Hash de senhas, proteção contra SQL Injection/XSS e gestão de segredos.
-- [ ] **Assincronicidade:** Domínio absoluto sobre Promises, Async/Await e o Event Loop do JavaScript.
+- [x] **Autenticação & Segurança:** JWT, Hash de senhas, proteção contra SQL Injection/XSS e gestão de segredos.
+- [x] **Assincronicidade:** Domínio absoluto sobre Promises, Async/Await e o Event Loop do JavaScript.
 - [ ] **Validação:** Garantia de contratos de entrada utilizando Zod.
-- [ ] **Qualidade:** Testes unitários e de integração no backend.
+- [x] **Qualidade:** Testes unitários e de integração no backend.
 
 ### 🗄️ Banco de Dados (O chão de fábrica)
 - [ ] **Fundamentos Relacionais:** Normalização de dados, Transações e propriedades ACID.
