@@ -1,0 +1,264 @@
+========================================================
+RELAÇÕES DO PRISMA — Movie Watchlist API
+========================================================
+
+Este arquivo explica como as três entidades do schema.prisma
+(User, Movie, WatchlistItem) se relacionam entre si, e o porquê
+de cada decisão de modelagem.
+
+
+--------------------------------------------------------
+1. VISÃO GERAL — O TRIÂNGULO DE RELAÇÕES
+--------------------------------------------------------
+
+           User
+          /    \
+         /      \
+    cria filmes   tem itens na watchlist
+        |               |
+      Movie <----- WatchlistItem
+
+- User cria vários Movie (relação "MovieCreator")
+- User tem vários WatchlistItem (sua lista pessoal)
+- Movie pode estar em vários WatchlistItem (de usuários diferentes)
+- WatchlistItem é a "ponte" entre User e Movie
+
+
+--------------------------------------------------------
+2. GENERATOR E DATASOURCE
+--------------------------------------------------------
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+- Define QUE tipo de client o Prisma vai gerar (código JS/TS) e ONDE
+  gerar esses arquivos (output customizado, em vez do padrão
+  node_modules/@prisma/client).
+- IMPORTANTE: por causa desse "output" customizado, todo import de
+  PrismaClient no projeto precisa apontar pra
+  "../generated/prisma" (ou caminho relativo equivalente),
+  NUNCA para "@prisma/client" direto. Foi exatamente esse detalhe
+  que causou os bugs de "coluna não existe" vistos durante o
+  desenvolvimento.
+
+datasource db {
+  provider = "postgresql"
+}
+
+- Define QUAL banco de dados está sendo usado (PostgreSQL) e de
+  onde vem a string de conexão (variável DATABASE_URL no .env,
+  usada implicitamente aqui via Prisma Config / adapter).
+
+
+--------------------------------------------------------
+3. MODEL User — O DONO DOS DADOS
+--------------------------------------------------------
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  password String
+  createdAt DateTime @default(now())
+
+  movies         Movie[]          @relation("MovieCreator")
+  watchlistItems WatchlistItem[]
+}
+
+- id: chave primária, gerada automaticamente como um UUID
+  (identificador único universal) — evita IDs sequenciais
+  previsíveis (1, 2, 3...) que facilitariam ataques de enumeração.
+
+- email @unique: garante, a nível de BANCO DE DADOS, que não
+  existam dois usuários com o mesmo e-mail — mesmo que a checagem
+  manual no controller (findUnique antes do create) falhe por
+  algum motivo, o banco recusaria o registro duplicado de qualquer
+  forma.
+
+- password: guarda a senha JÁ com hash (bcrypt) — nunca a senha
+  em texto puro.
+
+- movies e watchlistItems: esses dois campos NÃO criam colunas
+  no banco. Eles são campos "virtuais" do Prisma, que representam
+  o lado "muitos" das relações — servem só pra você conseguir
+  fazer queries tipo:
+
+      prisma.user.findUnique({
+        where: { id },
+        include: { movies: true, watchlistItems: true }
+      })
+
+  e receber, junto com o usuário, todos os filmes que ele criou e
+  todos os itens da watchlist dele.
+
+- @relation("MovieCreator"): dá um NOME pra essa relação
+  específica. Isso é necessário porque, tecnicamente, poderia
+  haver mais de uma relação diferente entre User e Movie no
+  futuro (ex: um campo "filmes favoritos" separado de "filmes
+  criados") — o nome evita ambiguidade sobre qual relação é qual.
+
+
+--------------------------------------------------------
+4. MODEL Movie — O CATÁLOGO
+--------------------------------------------------------
+
+model Movie {
+  id          String    @id @default(uuid())
+  title       String
+  overview    String?
+  releaseYear Int
+  genres      String[] @default([])
+  runtime     Int?
+  posterUrl   String?
+  createdBy   String
+  createdAt   DateTime @default(now())
+
+  creator User @relation("MovieCreator", fields: [createdBy], references: [id], onDelete: Cascade)
+  watchlistItems WatchlistItem[]
+}
+
+- Campos com "?" no final (overview, runtime, posterUrl) são
+  OPCIONAIS — podem ficar nulos no banco. Campos sem "?" (title,
+  releaseYear, createdBy) são OBRIGATÓRIOS.
+
+- genres String[] @default([]): um ARRAY de strings (recurso
+  nativo do PostgreSQL), com valor padrão de array vazio caso
+  nada seja informado.
+
+- createdBy: é a "chave estrangeira" (foreign key) em si — só
+  guarda o UUID de um User. É esse campo que causou o erro
+  "Foreign key constraint violated" quando o seed tentava usar
+  um creatorId que não existia mais no banco (depois de um
+  migrate reset).
+
+- creator User @relation(...): é o campo que TRADUZ esse
+  createdBy numa relação de verdade utilizável pelo Prisma Client.
+  Os três argumentos explicam a ligação:
+    • "MovieCreator"  -> mesmo nome usado lá no model User, pra
+                         o Prisma saber que são as DUAS PONTAS
+                         da MESMA relação.
+    • fields: [createdBy]   -> qual campo NESSE model (Movie)
+                                guarda a referência.
+    • references: [id]      -> qual campo NO OUTRO model (User)
+                                está sendo referenciado.
+
+- onDelete: Cascade: define o que acontece se o User dono for
+  deletado. Cascade significa "delete em cascata" — se o usuário
+  for removido, TODOS os filmes criados por ele também são
+  removidos automaticamente pelo banco.
+  ATENÇÃO: isso é uma decisão de design que vale questionar —
+  numa aplicação real, normalmente não se quer que filmes de um
+  catálogo compartilhado desapareçam só porque quem cadastrou
+  saiu da plataforma. Uma alternativa mais segura seria
+  onDelete: SetNull (mantém o filme, mas createdBy fica nulo) ou
+  onDelete: Restrict (impede deletar o usuário enquanto ele tiver
+  filmes cadastrados).
+
+- watchlistItems Movie[]: mesmo princípio do User — é o lado
+  "muitos" da relação com WatchlistItem, permitindo buscar todos
+  os itens de watchlist que referenciam esse filme.
+
+
+--------------------------------------------------------
+5. MODEL WatchlistItem — A TABELA PIVÔ (o "elo" entre User e Movie)
+--------------------------------------------------------
+
+model WatchlistItem {
+  id          String  @id @default(uuid())
+  userId      String
+  movieId     String
+  status      WatchlistStatus @default(PLANNED)
+  rating      Int?
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  movie Movie @relation(fields: [movieId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, movieId])
+}
+
+- Esse model é o que, em modelagem relacional clássica, se chama
+  de TABELA PIVÔ (ou tabela de junção/associativa): ela existe
+  PRINCIPALMENTE pra conectar dois outros models numa relação de
+  "muitos para muitos" (um User pode ter vários filmes na lista;
+  um Movie pode estar na lista de vários Users).
+
+- userId e movieId: as duas chaves estrangeiras, cada uma
+  apontando pra um model diferente.
+
+- user User @relation(fields: [userId], ...) e
+  movie Movie @relation(fields: [movieId], ...): aqui NÃO
+  precisou dar nome à relação (tipo "MovieCreator") porque só
+  existe UMA relação entre WatchlistItem e User, e UMA relação
+  entre WatchlistItem e Movie — não há ambiguidade a resolver.
+
+- status WatchlistStatus @default(PLANNED): campo do tipo enum
+  (definido logo abaixo), com valor padrão "PLANNED" caso não
+  seja informado na criação.
+
+- @@unique([userId, movieId]): essa é a linha mais importante
+  desse model. Cria uma CONSTRAINT COMPOSTA no banco, dizendo:
+  "a combinação de userId + movieId tem que ser única".
+  Na prática, isso impede que o MESMO usuário adicione o MESMO
+  filme duas vezes na watchlist — é essa constraint que o
+  controller consulta em:
+
+      prisma.watchlistItem.findUnique({
+        where: {
+          userId_movieId: { userId, movieId }
+        }
+      })
+
+  Repare que o Prisma gera automaticamente o nome
+  "userId_movieId" (junção dos dois campos, na ordem em que
+  foram declarados no @@unique) como a "chave" usada pra buscar
+  por essa combinação.
+
+- onDelete: Cascade (nos dois relacionamentos): se o User OU o
+  Movie referenciados forem deletados, o WatchlistItem
+  correspondente também é removido automaticamente. Faz sentido
+  aqui, diferente do caso do Movie->User: não existe motivo pra
+  manter um "item de watchlist órfão" apontando pra um usuário ou
+  filme que não existe mais.
+
+
+--------------------------------------------------------
+6. ENUM WatchlistStatus
+--------------------------------------------------------
+
+enum WatchlistStatus {
+  PLANNED
+  WATCHING
+  COMPLETED
+  DROPPED
+}
+
+- Um enum restringe o campo "status" a aceitar SOMENTE um desses
+  quatro valores exatos — o banco de dados recusa qualquer outro
+  valor, e o Prisma Client já gera tipagem/autocomplete baseado
+  nisso.
+- É por isso que o schema Zod (addToWatchlistSchema.js) usa
+  z.enum(["PLANNED", "WATCHING", "COMPLETED", "DROPPED"]) —
+  precisa bater EXATAMENTE com esses valores do enum do Prisma,
+  senão a query no banco falharia mesmo passando pela validação
+  do Zod.
+
+
+--------------------------------------------------------
+7. RESUMO — CARDINALIDADE DAS RELAÇÕES
+--------------------------------------------------------
+
+User  1 : N  Movie           (um usuário cria vários filmes)
+User  1 : N  WatchlistItem   (um usuário tem vários itens na lista)
+Movie 1 : N  WatchlistItem   (um filme aparece em várias listas)
+
+User  N : N  Movie           (relação indireta, via WatchlistItem)
+              "um usuário pode ter vários filmes na watchlist,
+               e um filme pode estar na watchlist de vários
+               usuários" — é justamente esse N:N que o
+               WatchlistItem resolve, quebrando-o em duas
+               relações 1:N.
