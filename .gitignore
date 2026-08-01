@@ -5,3 +5,6 @@ node_modules/
 *.js.map
 *.d.ts
 *.d.ts.map
+
+# Exceção: arquivos comentados de estudo em javascript-fundamentals
+!javascript-fundamentals/**/*.js
