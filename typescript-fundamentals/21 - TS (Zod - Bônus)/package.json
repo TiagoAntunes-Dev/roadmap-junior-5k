@@ -1,0 +1,22 @@
+{
+  "name": "zod-bonus",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Lucas <tiagocruyff14@gmail.com>",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch index.ts",
+    "build": "tsup index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.1",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
+  }
+}
