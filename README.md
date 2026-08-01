@@ -36,7 +36,7 @@ A meta é dominar a base, entender os "porquês" de cada arquitetura e documenta
 
 ### 🚀 Deploy & Infraestrutura (O selo de entrega)
 - [ ] **O Servidor:** Como os processos rodam na máquina (Portas, processos, filesystem efêmero).
-- [ ] **Segurança de Infra:** Gerenciamento de variáveis de ambiente e connection strings (Nunca commitar credenciais!).
+- [x] **Segurança de Infra:** Gerenciamento de variáveis de ambiente e connection strings (Nunca commitar credenciais!).
 - [ ] **Containers:** Fundamentos de Docker (Isolamento de ambiente).
 - [ ] **Automação (CI/CD):** Criação de pipelines com GitHub Actions.
 - [x] **Cloud Provider:** Noções básicas de nuvem (AWS/GCP), entendendo o que acontece por trás de plataformas como Render e Vercel.
