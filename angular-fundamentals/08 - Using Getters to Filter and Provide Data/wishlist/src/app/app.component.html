@@ -1,0 +1,46 @@
+<div class="container mt-4">
+
+  <form class="row mt-3 gx-3 gy-2 align-items-center justify-content-center">
+    <!-- Uma única caixa abraçando os dois elementos -->
+    <div class="d-flex gap-2 mb-3">
+      <label for="specificSizeInoutName" class="visually-hidden">Wish</label>
+      <input name="new-wish-text" type="text" class="form-control" [(ngModel)]="newWishText">
+      
+      <button 
+      type="submit" 
+      class="btn btn-primary text-nowrap"
+      (click)="$event.preventDefault(); addNewWish()">
+        Add Wish
+      </button>
+    </div>
+  </form>
+
+  <div class="row mt-2">
+    <div class="col-sm-2 mb-3">
+      <select class="form-select" [(ngModel)]="listFilter">
+        <option value="0" selected>All</option>
+        <option value="1">Incomplete</option>
+        <option value="2">Completed</option>
+      </select>
+    </div>
+
+  </div>
+
+  @if (visibleItems.length > 0) {
+    <ul>
+      @for (item of visibleItems; track item.wishText) {
+        <li>
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [checked]="item.isComplete" (click)="toggleDone(item)">
+            {{ item.wishText }}
+          </label>
+        </li>
+      }
+    </ul>
+  } @else {
+    <div>
+      There are no items in your wishlist.
+    </div>
+  }
+
+</div>

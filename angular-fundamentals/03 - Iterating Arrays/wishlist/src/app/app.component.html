@@ -1,0 +1,12 @@
+<div class="container">
+  <div>
+    @for (item of items; track item.wishText) {
+      <div>
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" [checked]="item.isComplete" (change)="toggleDone(item)">
+          {{ item.wishText }}
+        </label>
+      </div>
+    }
+  </div>
+</div>

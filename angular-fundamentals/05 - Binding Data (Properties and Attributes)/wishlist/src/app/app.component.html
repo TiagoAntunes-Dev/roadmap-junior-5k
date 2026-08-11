@@ -1,0 +1,24 @@
+<div class="container">
+
+  @if (items.length > 0) {
+    <!-- A estrutura da lista SÓ será criada no navegador se houver itens -->
+    <ul>
+      @for (item of items; track item.wishText; index as ii) {
+        <li>
+          <!-- COLE AQUI DENTRO O SEU BLOCO <label> E <input> EXATAMENTE COMO ESTÃO -->
+
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" [checked]="item.isComplete" [atrr.data-index]="ii" (change)="toggleDone(item)">
+              {{ item.wishText }}
+            </label>
+        </li>
+      }
+    </ul>
+  } @else {
+    <!-- Se o tamanho do array não for maior que zero, cai direto aqui -->
+    <div>
+      There are no items in your wishlist.
+    </div>
+  }
+
+</div>
