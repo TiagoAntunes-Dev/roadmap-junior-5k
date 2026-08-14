@@ -1,0 +1,19 @@
+<div class="container mt-4">
+
+  <app-add-wish-form>
+    (addWish)="items.push($event)"
+  </app-add-wish-form>
+
+  <div class="row mt-2">
+    <div class="col-sm-2 mb-3">
+      <select class="form-select" [(ngModel)]="listFilter">
+        <option value="0" selected>All</option>
+        <option value="1">Incomplete</option>
+        <option value="2">Completed</option>
+      </select>
+    </div>
+
+  </div>
+  <wish-list [wishes]="visibleItems"></wish-list>
+
+</div>

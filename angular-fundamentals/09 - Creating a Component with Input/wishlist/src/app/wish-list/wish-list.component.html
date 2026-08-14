@@ -1,0 +1,16 @@
+@if (wishes.length > 0) {
+    <ul>
+      @for (item of wishes; track item.wishText) {
+        <li>
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [checked]="item.isComplete" (click)="toggleDone(item)">
+            {{ item.wishText }}
+          </label>
+        </li>
+      }
+    </ul>
+  } @else {
+    <div>
+      There are no items in your wishlist.
+    </div>
+  }

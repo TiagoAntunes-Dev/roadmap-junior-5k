@@ -1,0 +1,10 @@
+<div class="container mt-4">
+
+  <app-add-wish-form (addWish)="items.push($event)"></app-add-wish-form>
+  <div class="row mt-2">
+    <wish-filter [(filter)]="activeFilter"></wish-filter>
+  </div>
+  
+  <wish-list [wishes]="visibleItems"></wish-list>
+
+</div>

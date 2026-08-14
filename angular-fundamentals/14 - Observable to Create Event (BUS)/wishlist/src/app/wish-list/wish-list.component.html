@@ -1,0 +1,17 @@
+@if (wishes.length > 0) {
+  <ul>
+    @for (item of wishes; track item.wishText) {
+      
+      <!-- Chamando a pecinha de Lego independente -->
+      <app-wish-list-item
+        [wishText]="item.wishText"
+        [(fulfilled)]="item.isComplete">
+      </app-wish-list-item>
+
+    }
+  </ul>
+} @else {
+  <div>
+    There are no items in your wishlist.
+  </div>
+}

@@ -1,0 +1,16 @@
+@if (wishes.length > 0) {
+  <ul>
+    @for (wish of wishes; track wish.wishText) {
+      
+      <!-- Chamando a pecinha de Lego independente -->
+      <app-wish-list-item
+        [wish]="wish">
+      </app-wish-list-item>
+
+    }
+  </ul>
+} @else {
+  <div>
+    There are no items in your wishlist.
+  </div>
+}
