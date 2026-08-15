@@ -9,6 +9,6 @@ export class WishService {
   constructor(private http: HttpClient) { }
 
   getWishes() {
-    return this.http.get('public/wishes.json');
+    return this.http.get('assets/wishes.json');
   }
 }
