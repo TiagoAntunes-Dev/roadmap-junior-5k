@@ -13,6 +13,22 @@ export default function AulasIndex() {
       <Link href="/aulas/boxModel" style={styles.card}>
         <Text style={styles.text}>Box Model</Text>
       </Link>
+
+       <Link href="/aulas/shadow_and_elevation" style={styles.card}>
+        <Text style={styles.text}>Shadow and Elevation</Text>
+      </Link>
+
+      <Link href="/aulas/style_inheritance" style={styles.card}>
+        <Text style={styles.text}>Style Inheritance</Text>
+      </Link>
+
+      <Link href="/aulas/layout_flexbox" style={styles.card}>
+        <Text style={styles.text}>Layout Flexbox</Text>
+      </Link>
+
+      <Link href="/aulas/codeSetup" style={styles.card}>
+        <Text style={styles.text}>Code Setup</Text>
+      </Link>
     </ScrollView>
   );
 }
