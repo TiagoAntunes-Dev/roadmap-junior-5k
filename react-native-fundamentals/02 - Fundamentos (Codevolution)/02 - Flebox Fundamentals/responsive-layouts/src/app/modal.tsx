@@ -1,5 +1,4 @@
-import { Link } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
 
 export default function ModalScreen() {
   return (
@@ -11,13 +10,13 @@ export default function ModalScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    backgroundColor: "plum"
+    flex: 1,
+    backgroundColor: "plum",
   },
 
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "white"
-  }
-})
+    color: "white",
+  },
+});
