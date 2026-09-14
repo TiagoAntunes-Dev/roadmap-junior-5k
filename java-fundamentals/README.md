@@ -1,9 +1,9 @@
 # ☕ Java: Fundamentos & Orientação a Objetos
 
-Este repositório funciona como um diário de bordo e um laboratório prático para o estudo da linguagem Java. O foco principal não é apenas armazenar sintaxe, mas documentar a lógica arquitetural, a transição de paradigmas e o funcionamento do motor do Java por trás dos panos.
+Este repositório funciona como um diário de bordo e um laboratório prático para o estudo da linguagem Java. O foco principal não é apenas armazenar sintaxe, mas documentar a lógica arquitetural[...]
 
 ## 🎯 Objetivo do Repositório
-Mapear a transição de um ecossistema focado em JavaScript/Node.js para a estrutura de tipagem estática e Orientação a Objetos clássica do Java, consolidando os pilares necessários para o desenvolvimento backend robusto.
+Mapear a transição de um ecossistema focado em JavaScript/Node.js para a estrutura de tipagem estática e Orientação a Objetos clássica do Java, consolidando os pilares necessários para o desenv[...]
 
 ## 📚 Conceitos Dominados (Até o momento)
 
@@ -29,7 +29,7 @@ Ao longo dos testes e projetos neste repositório, os seguintes conceitos lógic
 
 ### 5. Métodos e Princípio D.R.Y.
 * Isolamento de blocos de código para evitar repetição (Don't Repeat Yourself).
-* **Method Overload (Sobrecarga):** Criação de múltiplos métodos com o mesmo nome, alterando apenas a *assinatura* (parâmetros), delegando ao Java a inteligência de escolher o fluxo correto de execução.
+* **Method Overload (Sobrecarga):** Criação de múltiplos métodos com o mesmo nome, alterando apenas a *assinatura* (parâmetros), delegando ao Java a inteligência de escolher o fluxo correto de e[...]
 
 ### 6. Orientação a Objetos (POO)
 * **Classes vs. Objetos:** Separação clara entre a "planta baixa" (Classe) e a instância física na memória (Objeto).

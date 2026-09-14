@@ -11,7 +11,7 @@ A meta é dominar a base, entender os "porquês" de cada arquitetura e documenta
 
 ### 💻 Frontend (Onde a comunicação brilha)
 - [x] **TypeScript Base:** Sintaxe, inferência, types vs interfaces, genérics.
-- [x] **Angular:** Aprofundamento no framework com foco na reatividade moderna (Signals).
+- [x] **React-Native:** Aprofundamento no framework com foco em Expo.
 - [ ] **Design Tokens & Componentes:** Integração com bibliotecas (ex: shadcn) e ligação direta com o Design System.
 - [ ] **Validação:** Tratamento de dados no lado do cliente utilizando Zod.
 - [x] **Acessibilidade & UX:** Fundamentos de interfaces amigáveis e estruturação semântica.
