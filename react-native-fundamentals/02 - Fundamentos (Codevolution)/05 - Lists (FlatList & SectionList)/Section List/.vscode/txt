@@ -1,0 +1,160 @@
+import { StyleSheet,
+
+  Text,
+
+  View,
+
+  ScrollView,
+
+  SafeAreaView,
+
+  StatusBar,
+
+  FlatList,  
+
+} from "react-native";
+
+import pokemonList from "@/db/data.json"; // 1. Importação dos dados estáticos do JSON
+
+
+
+export default function Index() {
+
+  return (
+
+    // 2. SafeAreaView garante que o conteúdo não fique debaixo da barra de status ou "notch"
+
+    <SafeAreaView style={styles.container}>
+
+     
+
+      {/*      
+
+      <ScrollView style={styles.scrollView}>
+
+      {
+
+        // 4. Mapeamento do array: converte cada objeto JavaScript em um elemento JSX na tela
+
+        pokemonList.map(pokemon => {
+
+          return (
+
+            // 5. 'key' única é OBRIGATÓRIA no React para controle de renderização e performance
+
+            <View style={styles.card} key={pokemon.id}>
+
+              <Text style={styles.cardText}>{pokemon.type}</Text>
+
+              <Text style={styles.cardText}>{pokemon.name}</Text>
+
+            </View>
+
+          )
+
+        })
+
+      }
+
+      </ScrollView> */}
+
+      <View style={styles.scrollView}>
+
+      <FlatList
+
+        data={pokemonList}
+
+        renderItem={({ item }) => {
+
+          return (
+
+            // 5. 'key' única é OBRIGATÓRIA no React para controle de renderização e performance
+
+            <View style={styles.card} key={item.id}>
+
+              <Text style={styles.cardText}>{item.type}</Text>
+
+              <Text style={styles.cardText}>{item.name}</Text>
+
+            </View>
+
+          )
+
+        }}
+
+        // Horizontal
+
+      />
+
+      </View>
+
+    </SafeAreaView>
+
+  );
+
+}
+
+
+
+const styles = StyleSheet.create({
+
+  container: {
+
+    flex: 1,
+
+    backgroundColor: "#f5f5f5",
+
+    // Evita o conteúdo colado no topo especificamente no Android
+
+    paddingTop: StatusBar.currentHeight
+
+  },
+
+
+
+  scrollView: {
+
+    paddingHorizontal: 20,
+
+  },
+
+
+
+  card: {
+
+    backgroundColor: "white",
+
+    borderWidth: 1,
+
+    borderRadius: 8,
+
+    padding: 16,
+
+    marginBottom: 16,
+
+    // Configurações de sombra para iOS
+
+    shadowColor: "#000",
+
+    shadowOffset: { width: 0, height: 2 },
+
+    shadowOpacity: 0.25,
+
+    shadowRadius: 3.84,
+
+    // Propriedade de sombra equivalente para Android
+
+    elevation: 5,
+
+  },
+
+
+
+  cardText: {
+
+    fontSize: 16,
+
+  }
+
+}); 
+
