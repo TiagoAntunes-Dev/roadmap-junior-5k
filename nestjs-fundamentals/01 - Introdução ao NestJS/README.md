@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://nestjs.com/img/logo-small.svg" width="150" alt="NestJS Logo" />
-  <h1>🚀 Introdução ao NestJS</h1>
+  <h1> Introdução ao NestJS</h1>
   <p><em>Um framework Node.js progressivo, escalável e focado em arquitetura de alto nível.</em></p>
 
   <!-- Badges -->
