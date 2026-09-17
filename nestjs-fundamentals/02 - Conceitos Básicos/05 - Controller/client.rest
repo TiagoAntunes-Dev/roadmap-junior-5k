@@ -1,0 +1,69 @@
+# ===================================================================================
+# 📍 CONTEXTO DO TRANSCRIPT (Arquivo .rest com a extensão REST Client):
+# ===================================================================================
+# Por que usamos este arquivo em vez do navegador?
+#  1. O navegador só faz requisições GET por padrão. Para POST, PUT, DELETE precisaria de JS.
+#  2. O arquivo client.rest funciona como uma documentação viva das rotas da API.
+#  3. Fica salvo no repositório Git para qualquer desenvolvedor testar a API com 1 clique.
+# ===================================================================================
+
+# 🌐 VARIÁVEL DE AMBIENTE (BASE URL)
+# - @baseUrl: Declara uma variável no REST Client usando o símbolo '@'.
+# - = http://localhost:3000: Define o valor base do servidor (Protocolo + Domínio + Porta).
+# - Contexto da Aula: O professor criou essa variável para não ter que repetir 
+#   "http://localhost:3000" em todas as requisições. Se a porta mudar no futuro,
+#   altera-se apenas nesta linha!
+@baseUrl = http://localhost:3000
+
+
+# -----------------------------------------------------------------------------------
+# REQUISIÇÃO 1: TESTANDO A ROTA GET /home/hello
+# -----------------------------------------------------------------------------------
+
+# ###: Separador de requisições exigido pelo REST Client. Permite ter vários testes no mesmo arquivo.
+### AppControllerGetHello
+
+# # @name AppControllerGetHello: Diretiva que dá um identificador/nome para esta requisição.
+# @name AppControllerGetHello
+
+# GET {{baseUrl}}/home/hello
+# - GET: Define o Método HTTP da solicitação.
+# - {{baseUrl}}: Interpolação/Uso da variável declarada no topo (http://localhost:3000).
+# - /home: O recurso base definido no @Controller('home') do NestJS.
+# - /hello: A sub-rota definida no @Get('hello') do NestJS.
+# - Resultado final enviado ao servidor: GET http://localhost:3000/home/hello
+# - Resposta esperada do NestJS: 200 OK -> "Qualquer Coisa"
+GET {{baseUrl}}/home/hello
+
+
+# -----------------------------------------------------------------------------------
+#  REQUISIÇÃO 2: TESTANDO A ROTA GET /home/exemplo
+# -----------------------------------------------------------------------------------
+
+# ###: Separador de requisição. Sem as 3 sustenidos, o REST Client entende tudo como uma requisição só!
+### Exemplo de Rota
+
+# # @name ExemplodeRota: Nome da segunda requisição no REST Client.
+# @name ExemplodeRota
+
+# GET {{baseUrl}}/home/exemplo
+# - GET: Método HTTP da solicitação.
+# - {{baseUrl}}: Substituído por http://localhost:3000
+# - /home: Recurso do Controller (@Controller('home'))
+# - /exemplo: Sub-rota do método (@Get('exemplo'))
+# - Resultado final enviado ao servidor: GET http://localhost:3000/home/exemplo
+# - Resposta esperada do NestJS: 200 OK -> "Exemplo de rota"
+GET {{baseUrl}}/home/exemplo
+
+### Concepts Manual Controller
+
+# @name ConceptsManualController
+
+GET {{baseUrl}}/conceitos-manuais
+
+
+### Concepts Cli Controller
+
+# @name ConceptsCliController
+
+GET {{baseUrl}}/concepts-cli
