@@ -1,44 +1,56 @@
 import { Controller, Get } from '@nestjs/common';
+import { AppService } from './app.service.js';
 
-//   Ao colocar 'home', a URL base vira: http://localhost:3000/home
+/**
+ * ===================================================================================
+ * 🏛️ O QUE É UM CONTROLLER? (Explicação a 110%)
+ * ===================================================================================
+ * Pense no Controller como o **Recepcionista de um Hotel de Luxo**:
+ * - Quando o cliente (navegador/REST Client) chega fazendo uma Requisição HTTP, é o 
+ *   Controller quem o atende na porta de entrada.
+ * - Ele identifica a rota, valida o que o cliente quer e coordena a resposta.
+ * - PORÉM, o recepcionista NÃO arruma os quartos ou faz cálculos complexos sozinho: 
+ *   ele delega o trabalho pesado para a equipe especializada (o Service).
+ * ===================================================================================
+ */
+
+// @Controller('home'): Define o prefixo global da URL para todas as rotas desta classe.
+// Qualquer rota aqui dentro exigirá obrigatoriamente: http://localhost:3000/home/...
 @Controller('home')
-
 export class AppController {
 
-  // // constructor(private readonly appService: AppService) {}
-  // ^ Linha comentada com //: O professor desativou temporariamente o serviço (AppService)
-  //   para focar unicamente no funcionamento dos Controllers e Rotas.
+  /**
+   * 💉 INJEÇÃO DE DEPENDÊNCIA NO CONSTRUCTOR:
+   * O NestJS injeta automaticamente o AppService aqui. 
+   * - private readonly: Mantém o serviço seguro, privado e somente para leitura nesta classe.
+   * O Controller foca 100% apenas no protocolo HTTP, deixando as regras de negócio para o Service.
+   */
+  constructor(private readonly appService: AppService) {}
 
   // ---------------------------------------------------------------------------------
   // ⚡ ROTA 1: GET /home/hello
   // ---------------------------------------------------------------------------------
-  // - @Get('hello'): Mapeia o método HTTP GET para a sub-rota 'hello'.
-  //   Rota Completa = Prefixo da Classe (/home) + Sub-rota (/hello) => /home/hello
-  // - Contexto da Aula: GET indica intenção de LER dados (Read no CRUD).
-  @Get('hello') // Método da solicitação -> Ler (Read) - cRud
-
-  // - getHello(): Nome da função que o NestJS executa quando acionado em GET /home/hello.
-  // - : string: Tipagem TypeScript garantindo que a resposta será um texto.
+  // @Get('hello'): Mapeia requisições HTTP do tipo GET (Read/Leitura) para a sub-rota 'hello'.
+  // Rota Final Completa: Prefixo da Classe (/home) + Sub-rota (/hello) => http://localhost:3000/home/hello
+  @Get('hello')
   getHello(): string {
-
-    // - return 'Qualquer Coisa': A resposta final enviada ao cliente com HTTP Status 200 OK.
+    // Retorna uma string direta (o NestJS converte automaticamente para HTTP 200 OK com o texto).
     return 'Qualquer Coisa';
   }
 
   // ---------------------------------------------------------------------------------
-  // ⚡ ROTA 2: GET /home/exemplo (NOVA ROTA CRIADA NA AULA)
+  // ⚡ ROTA 2: GET /home/exemplo
   // ---------------------------------------------------------------------------------
-  // - @Get('exemplo'): Mapeia uma segunda rota do tipo GET nesta mesma classe.
-  //   Rota Completa = Prefixo da Classe (/home) + Sub-rota (/exemplo) => /home/exemplo
-  // - Contexto da Aula: O professor criou esta rota para provar que uma mesma classe
-  //   pode ter múltiplos métodos respondendo a sub-rotas diferentes sob o mesmo controller /home.
+  // @Get('exemplo'): Mapeia outra rota GET dentro do mesmo controller.
+  // Rota Final Completa: http://localhost:3000/home/exemplo
   @Get('exemplo')
-
-  // - exemplo(): Nome do método handler para a rota de exemplo.
-  // - : string: Garante retorno do tipo texto.
   exemplo() : string {
-
-    // - return 'Exemplo de rota': O texto retornado especificamente para a rota /home/exemplo.
-    return 'Exemplo de rota';
+    /**
+     * 🔄 DELEGAÇÃO PARA O SERVICE:
+     * Aqui o Controller cumpre seu papel perfeito: em vez de calcular ou buscar dados 
+     * diretamente, ele chama o AppService para executar a lógica de negócio e apenas 
+     * devolve o resultado ao cliente.
+     */
+    return this.appService.getHello();
   }
 }
