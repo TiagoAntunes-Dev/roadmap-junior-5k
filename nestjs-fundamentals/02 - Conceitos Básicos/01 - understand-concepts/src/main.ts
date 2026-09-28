@@ -50,4 +50,5 @@ async function bootstrap() {
  * o TypeScript/Node permite o uso do `await` no escopo global do arquivo, dispensando 
  * a necessidade de usar `.then()` ou IIFE (Expressão de Função Invocada Imediatamente).
  */
+=======
 await bootstrap();

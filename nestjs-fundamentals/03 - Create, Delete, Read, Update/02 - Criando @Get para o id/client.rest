@@ -1,0 +1,28 @@
+# ===================================================================================
+# 🌐 VARIÁVEL DE AMBIENTE (BASE URL)
+# ===================================================================================
+# - @baseUrl: Sintaxe para declarar variáveis no REST Client usando '@'.
+# - Permite reaproveitamento e evita repetição de 'http://localhost:3000' em todas as requisições.
+# - Para usar a variável nas requisições, utiliza-se a interpolação {{baseUrl}}.
+@baseUrl = http://localhost:3000
+
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 1: BUSCAR TODOS OS RECADOS (ROTA ESTÁTICA)
+# -----------------------------------------------------------------------------------
+GET {{baseUrl}}/message
+
+# ===================================================================================
+# 💡 SEPARADOR '###' (OBRIGATÓRIO NO REST CLIENT)
+# ===================================================================================
+# - As três cerquinhas '###' funcionam como o divisor de requisições no arquivo .http / .rest.
+# - Sem esse separador, o plugin do VS Code não consegue identificar onde uma requisição 
+#   termina e a outra começa, deixando de exibir o botão "Send Request".
+# ===================================================================================
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 2: BUSCAR UM RECADO POR ID (ROTA DINÂMICA)
+# -----------------------------------------------------------------------------------
+# O número '1' no final será capturado pelo parâmetro ':id' declarado no Controller.
+GET {{baseUrl}}/message/1

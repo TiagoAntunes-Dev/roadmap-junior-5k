@@ -1,0 +1,27 @@
+# ===================================================================================
+# 🌐 VARIÁVEL DE AMBIENTE (BASE URL)
+# ===================================================================================
+@baseUrl = http://localhost:3000
+
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 1: BUSCAR TODOS OS RECADOS (READ - ALL)
+# -----------------------------------------------------------------------------------
+GET {{baseUrl}}/message
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 2: BUSCAR UM RECADO POR ID (READ - ONE)
+# -----------------------------------------------------------------------------------
+GET {{baseUrl}}/message/1
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 3: CRIAR UM RECADO (CREATE)
+# -----------------------------------------------------------------------------------
+# - Utiliza o verbo HTTP POST para apontar para o método create() marcado com @Post().
+# - Nota: Mesmo apontando para a mesma URL da Requisição 1 ({{baseUrl}}/message), 
+#   a mudança do verbo de GET para POST faz o NestJS executar a rota de criação.
+POST {{baseUrl}}/message

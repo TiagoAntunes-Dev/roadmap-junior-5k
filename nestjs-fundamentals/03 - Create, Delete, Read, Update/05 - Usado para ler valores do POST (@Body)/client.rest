@@ -1,0 +1,39 @@
+# ===================================================================================
+# 🌐 VARIÁVEL DE AMBIENTE (BASE URL)
+# ===================================================================================
+@baseUrl = http://localhost:3000
+
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 1: BUSCAR TODOS OS RECADOS (READ - ALL)
+# -----------------------------------------------------------------------------------
+GET {{baseUrl}}/message
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 2: BUSCAR UM RECADO POR ID (READ - ONE)
+# -----------------------------------------------------------------------------------
+GET {{baseUrl}}/message/1
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 3: CRIAR UM RECADO (CREATE COM JSON BODY)
+# -----------------------------------------------------------------------------------
+# - Utiliza o verbo HTTP POST para apontar para o método create() marcado com @Post().
+# 
+# 💡 CONCEITOS IMPORTANTES DA AULA (ENVIANDO DADOS):
+# 1. HEADER (Cabeçalho): `Content-Type: application/json` avisa ao servidor que o 
+#    corpo da requisição está no formato JSON.
+# 2. SEPARADOR OBRIGATÓRIO: É obrigatório pular exatamente UMA LINHA em branco 
+#    entre os cabeçalhos (Headers) e o corpo da requisição (Body).
+# 3. JSON: O formato JSON exige que as chaves (ex: "message", "hora") e os valores 
+#    de texto estejam sempre entre ASPAS DUPLAS.
+POST {{baseUrl}}/message
+Content-Type: application/json
+
+{
+    "message": "Voce acabou de receber uma Mensagem",
+    "hora": "Nao sei, mais nao importa tanto!"
+}

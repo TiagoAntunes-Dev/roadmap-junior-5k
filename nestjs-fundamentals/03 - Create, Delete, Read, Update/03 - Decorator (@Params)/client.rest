@@ -1,0 +1,22 @@
+# ===================================================================================
+# 🌐 VARIÁVEL DE AMBIENTE (BASE URL)
+# ===================================================================================
+# - @baseUrl: Declara a variável de ambiente para reaproveitamento de URL.
+@baseUrl = http://localhost:3000
+
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 1: BUSCAR TODOS OS RECADOS (ROTA ESTÁTICA)
+# -----------------------------------------------------------------------------------
+# Mapeia diretamente para o método findAll() do Controller.
+GET {{baseUrl}}/message
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 2: BUSCAR UM RECADO ESPECÍFICO (ROTA DINÂMICA)
+# -----------------------------------------------------------------------------------
+# - O valor '1' no final da URL será capturado pelo parâmetro dinâmico ':id'.
+# - Dentro do Controller, o `@Param('id')` extrai '1' e o injeta na variável `id`.
+# - Você pode alterar '1' para qualquer outro valor (ex: /message/100 ou /message/abc).
+GET {{baseUrl}}/message/1

@@ -1,0 +1,60 @@
+# ===================================================================================
+# 🌐 VARIÁVEL DE AMBIENTE (BASE URL)
+# ===================================================================================
+@baseUrl = http://localhost:3000
+
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 1: BUSCAR TODOS OS RECADOS (READ - ALL)
+# -----------------------------------------------------------------------------------
+# Lista todos os recados.
+GET {{baseUrl}}/message
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 2: BUSCAR UM RECADO POR ID (READ - ONE)
+# -----------------------------------------------------------------------------------
+# Lista apenas um recado específico pelo ID.
+GET {{baseUrl}}/message/1
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 3: CRIAR UM RECADO (CREATE)
+# -----------------------------------------------------------------------------------
+# Cria um novo recado.
+POST {{baseUrl}}/message
+Content-Type: application/json
+
+{
+    "message": "Você acabou de receber uma Mensagem",
+    "hora": " Não sei, mais não importa tanto!"
+}
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 4: ATUALIZAR UM RECADO (UPDATE - PATCH)
+# -----------------------------------------------------------------------------------
+# Atualiza um recado existente.
+# - Necessita do ID na URL (ex: /1) para saber qual recado alterar.
+# - Como estamos usando PATCH, podemos enviar apenas as chaves que queremos alterar
+#   (atualização parcial).
+PATCH {{baseUrl}}/message/1
+Content-Type: application/json
+
+{
+    "message": "Vamos atualizar essa Mensagem?",
+    "atualizar": "Na volta vemos isso!"
+}
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 5: DELETAR UM RECADO (DELETE)
+# -----------------------------------------------------------------------------------
+# Apaga um recado existente.
+# - O verbo HTTP é DELETE.
+# - Necessita do ID na URL (ex: /10) indicando o recurso a ser removido.
+DELETE {{baseUrl}}/message/10

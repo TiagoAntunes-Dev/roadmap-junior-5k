@@ -1,0 +1,34 @@
+# ===================================================================================
+# 🌐 VARIÁVEL DE AMBIENTE (BASE URL)
+# ===================================================================================
+@baseUrl = http://localhost:3000
+
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 1: BUSCAR TODOS OS RECADOS (READ - ALL)
+# -----------------------------------------------------------------------------------
+# 💡 Dica: Ao executar esta requisição, observe a resposta ao lado direito no VS Code.
+# A primeira linha da resposta será: "HTTP/1.1 200 OK" (Controlado pelo @HttpCode).
+GET {{baseUrl}}/message
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 2: BUSCAR UM RECADO POR ID (READ - ONE)
+# -----------------------------------------------------------------------------------
+GET {{baseUrl}}/message/1
+
+###
+
+# -----------------------------------------------------------------------------------
+# 📄 REQUISIÇÃO 3: CRIAR UM RECADO (CREATE COM JSON BODY)
+# -----------------------------------------------------------------------------------
+# 💡 Dica: Ao executar esta requisição, a primeira linha da resposta será: 
+# "HTTP/1.1 201 Created".
+POST {{baseUrl}}/message
+Content-Type: application/json
+
+{
+    "message": "Você  acabou de receber uma Mensagem",
+    "hora": " Não sei, mais não importa tanto!"
+}
