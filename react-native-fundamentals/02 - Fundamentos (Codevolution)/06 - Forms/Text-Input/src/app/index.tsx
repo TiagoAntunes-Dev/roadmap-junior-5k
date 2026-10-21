@@ -1,14 +1,17 @@
-import { StyleSheet, StatusBar, TextInput } from "react-native";
+import { StyleSheet, StatusBar, TextInput, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useState } from "react";
 
 export default function Index() {
+  // ✅ correto e recomendado
+  const [name, setName] = useState("")
+
   return (
     <SafeAreaView style={styles.container}>
-      <TextInput 
-        style={styles.input} 
-        placeholder="Digite algo aqui..." 
-        placeholderTextColor="#9ca3af" // Cor suave para o texto de dica
-      />
+      <TextInput style={styles.input} value={name} onChangeText={setName} placeholder="Digite seu nome" />
+      <Text style={styles.text}>
+        My name is {name}
+      </Text>
     </SafeAreaView>
   );
 }
@@ -16,29 +19,19 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f4f4f5", // Fundo levemente cinza para destacar o input branco
+    backgroundColor: "#fff",
     paddingTop: StatusBar.currentHeight,
-    paddingHorizontal: 20,
-    justifyContent: "center", // Centraliza o input na tela para esse teste
   },
 
   input: {
-    height: 54, // Altura maior melhora a área de toque (Touch Target)
-    backgroundColor: "#ffffff",
+    height: 40,
+    margin: 12,
+    padding: 10,
     borderWidth: 1,
-    borderColor: "#e5e7eb", // Borda cinza bem clara e sutil
-    borderRadius: 12, // Cantos mais arredondados (visual moderno)
-    paddingHorizontal: 16, // Espaçamento interno lateral
-    fontSize: 16,
-    color: "#1f2937", // Texto escuro, mas não 100% preto (cansa menos a vista)
-    
-    // Sombra sutil para iOS
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    
-    // Sombra sutil para Android
-    elevation: 2,
+  },
+
+  text: {
+    fontSize: 30,
+    padding: 10
   }
 });
